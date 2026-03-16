@@ -11,20 +11,18 @@ const Signup = () => {
   const [address, setAddress] = useState("");
 
   const navigate = useNavigate();
+  const API = import.meta.env.VITE_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(
-        "http://localhost:4000/api/v1/auth/signup",
-        {
-          name,
-          email,
-          password,
-          phone,
-          address,
-        }
-      );
+      const { data } = await axios.post(`${API}/api/v1/auth/signup`, {
+        name,
+        email,
+        password,
+        phone,
+        address,
+      });
       if (data && data.success) {
         toast.success(data.message);
         navigate("/login");
