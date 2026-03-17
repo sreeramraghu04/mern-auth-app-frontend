@@ -10,6 +10,7 @@ const Login = () => {
 
   const navigate = useNavigate();
   const { auth, setAuth } = useContext(AuthContext);
+  //! to run frontend and backend
   const API = import.meta.env.VITE_API_URL;
 
   const handleSubmit = async (e) => {
